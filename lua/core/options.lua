@@ -1,0 +1,1 @@
+vim.o.shell = "C:\\Program Files\\Git\\bin\\bash.exe"

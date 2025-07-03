@@ -11,11 +11,17 @@ local api = require("nvim-tree.api")
 
 function changeDir()
   local node = api.tree.get_node_under_cursor()
-  if node and node.absolute_path then
+  if not node or not node.absolute_path then
+    print("No valid node under cursor")
+    return
+  end
+
+  if node.type == "directory" then
     print("Changing directory to: " .. node.absolute_path)
     vim.cmd("cd " .. node.absolute_path)
   else
-    print("No valid node under cursor")
+    print("Opening file: " .. node.absolute_path)
+    vim.cmd("edit " .. node.absolute_path)
   end
 end
 
