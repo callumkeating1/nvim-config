@@ -1,0 +1,4 @@
+# Ignore lazy.nvim plugin directory
+lazy-lock.json
+lua/lazy-lock.json
+lazy/
