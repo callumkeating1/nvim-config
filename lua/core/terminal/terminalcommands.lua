@@ -24,7 +24,19 @@ function createterm()
 
   vim.api.nvim_buf_set_keymap(buf, 't', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
 end
-
+function toggleterm()
+  local term_buf = vim.fn.bufnr("term://*")
+  if term_buf == -1 then
+    return
+  else
+    if vim.api.nvim_buf_is_valid(term_buf) then
+      vim.api.nvim_set_current_buf(term_buf)
+    else
+      createterm()
+    end
+  end
+end
 return {
   createterm = createterm,
+  toggleterm = toggleterm,
 }

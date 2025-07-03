@@ -25,9 +25,21 @@ function changeDir()
   end
 end
 
-function keymaps()
-  vim.keymap.set("n", "<C-e>", api.tree.toggle, { noremap = true, silent = true })
-  vim.keymap.set("n", "<CR>", changeDir, { noremap = true, silent = true })
+function keymaps(bufnr)
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  vim.keymap.set("n", "<C-e>", api.tree.toggle, opts("Toggle NvimTree"))
+  vim.keymap.set("n", "<CR>", changeDir, opts("Open file or cd"))
+  vim.keymap.set("n", "<Tab>", function()
+  local node = api.tree.get_node_under_cursor()
+  if node then
+    if node.type == "directory" then
+      api.node.open.edit(node, { toggle = true })
+    end
+  end
+  end, opts("Toggle Folder"))
 end
 
 vim.keymap.set("n", "<C-e>", api.tree.toggle, { noremap = true, silent = true })
@@ -40,7 +52,7 @@ require("nvim-tree").setup({
     sorter = "case_sensitive",
   },
   view = {
-
+    side = "right",
   },
   renderer = {
     group_empty = true,
