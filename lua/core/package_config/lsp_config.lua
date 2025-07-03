@@ -11,5 +11,3 @@ lspconfig.ts_ls.setup {
 lspconfig.eslint.setup {
   capabilities = capabilities,
 }
-vim.keymap.set('n', '<C-i>', '<cmd>LspInfo<cr>', { noremap = true, silent = true, desc = 'LSP Info' })
-vim.keymap.set('n', '<C-r>', '<cmd>LspRestart<cr>', { noremap = true, silent = true, desc = 'LSP Restart' })
