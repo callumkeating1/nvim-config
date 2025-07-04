@@ -22,6 +22,14 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
   spec = {
     {
+      "tpope/vim-fugitive",
+      lazy = false, -- set to true if you want it to load on a specific command
+      cmd = { "Git", "Gdiffsplit", "Gread", "Gwrite", "Ggrep", "GMove", "GDelete", "GBrowse", "GRemove", "GRename" },
+      keys = {
+        { "<leader>gs", ":Git<CR>", desc = "Git status" },
+      }
+    },
+    {
       "nvim-treesitter/nvim-treesitter",
       build = ":TSUpdate",
       config = function()
@@ -57,7 +65,7 @@ require("lazy").setup({
           ensure_installed = {
               "lua_ls",
               "ts_ls",
-              "eslint"
+                "eslint"
           }
         })
       end
@@ -68,7 +76,6 @@ require("lazy").setup({
     {
       "nvim-tree/nvim-tree.lua",
       version = "*",
-      lazy = false,
       dependencies = {
         "nvim-tree/nvim-web-devicons",
       },
@@ -80,11 +87,33 @@ require("lazy").setup({
       'nvim-lualine/lualine.nvim',
       dependencies = { 'nvim-tree/nvim-web-devicons' }
     },
-
+    {
+      "EdenEast/nightfox.nvim",
+      config = function()
+        require("nightfox").setup({
+          options = {
+            transparent = false,
+          }
+        })
+      end
+    },
+    {
+        "nvim-telescope/telescope-file-browser.nvim",
+        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    },
+    {
+      "L3MON4D3/LuaSnip",
+    },
+    {
+      "mbbill/undotree",
+      cmd = "UndotreeToggle",
+      keys = {
+        { "<leader>u", "<cmd>UndotreeToggle<CR>", desc = "Toggle Undotree" },
+      }
+    },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  vim.cmd.colorscheme("habamax"),  -- force colorscheme on every start
   vim.cmd.syntax("enable"),       -- ensure syntax is enabled
   -- automatically check for plugin updates
   checker = { enabled = true },
