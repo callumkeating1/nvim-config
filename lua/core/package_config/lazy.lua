@@ -108,12 +108,14 @@ require("lazy").setup({
     {
       "williamboman/mason.nvim",
       build = ":MasonUpdate",
+      lazy = true,
       config = function()
         require("mason").setup()
       end
     },
     {
       "williamboman/mason-lspconfig.nvim",
+      lazy = true,
       config = function()
         require("mason-lspconfig").setup({
           ensure_installed = {
@@ -126,6 +128,7 @@ require("lazy").setup({
     },
     {
       "neovim/nvim-lspconfig",
+      lazy = true,
     },
     {
       "nvim-tree/nvim-tree.lua",
@@ -143,6 +146,7 @@ require("lazy").setup({
     },
     {
       "EdenEast/nightfox.nvim",
+      lazy = true,
       config = function()
         require("nightfox").setup({
           options = {
@@ -153,10 +157,12 @@ require("lazy").setup({
     },
     {
         "nvim-telescope/telescope-file-browser.nvim",
+        lazy = true,
         dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
     },
     {
       "L3MON4D3/LuaSnip",
+      lazy = true,
       version = "v2.*"
     },
     { "rafamadriz/friendly-snippets" },
