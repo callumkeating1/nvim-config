@@ -1,6 +1,5 @@
 local opts = { noremap = true, silent = true }
 local api = require("nvim-tree.api")
-local terminal = require('core.terminal.terminalcommands')
 -- Resize with Ctrl + arrow keys
 vim.keymap.set('n', '<A-k>', ':resize -2<CR>', opts)
 vim.keymap.set('n', '<A-j>', ':resize +2<CR>', opts)
@@ -10,8 +9,6 @@ vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
-vim.keymap.set('n', '<C-t>', function() terminal.createterm() end, opts)
-vim.keymap.set('n', '<C-n>', function() terminal.toggleterm() end, opts)
 vim.keymap.set('n', '<C-f>', require('telescope.builtin').live_grep, { desc = "Live Grep" })
 vim.keymap.set("n", "<C-e>", api.tree.toggle, opts)
 vim.keymap.set("n", "<C-e>", api.tree.toggle, opts)
