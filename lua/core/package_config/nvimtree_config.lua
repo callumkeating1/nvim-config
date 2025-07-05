@@ -35,15 +35,21 @@ function expandDir()
 end
 
 
-function keymaps(bufnr)
+local function keymaps(bufnr)
+  local api = require("nvim-tree.api")
+
+  -- Apply the default mappings first
+  api.config.mappings.default_on_attach(bufnr)
+
+  -- Then override or add your own
   local function opts(desc)
     return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
 
   vim.keymap.set("n", "<C-e>", api.tree.toggle, opts("Toggle NvimTree"))
   vim.keymap.set("n", "<CR>", changeDir, opts("Open file or cd"))
-  vim.keymap.set("n", "<Tab>", expandDir,opts("Expand directory"))
-  vim.keymap.set("n", " ", expandDir,opts("Expand directory"))
+  vim.keymap.set("n", "<Tab>", expandDir, opts("Expand directory"))
+  vim.keymap.set("n", " ", expandDir, opts("Expand directory"))
 end
 
 -- OR setup with some options
