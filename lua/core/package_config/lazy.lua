@@ -22,6 +22,11 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
   spec = {
     {
+      "ThePrimeagen/harpoon",
+      branch = "harpoon2",
+      dependencies = { "nvim-lua/plenary.nvim" }
+    },
+    {
       "tpope/vim-fugitive",
       lazy = false, -- set to true if you want it to load on a specific command
       cmd = { "Git", "Gdiffsplit", "Gread", "Gwrite", "Ggrep", "GMove", "GDelete", "GBrowse", "GRemove", "GRename" },
@@ -65,7 +70,7 @@ require("lazy").setup({
           ensure_installed = {
               "lua_ls",
               "ts_ls",
-                "eslint"
+              "eslint"
           }
         })
       end
