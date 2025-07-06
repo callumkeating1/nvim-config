@@ -10,4 +10,9 @@ lspconfig.ts_ls.setup {
 
 lspconfig.eslint.setup {
   capabilities = capabilities,
+  settings = {
+    experimental = {
+      useFlatConfig = true
+    }
+  }
 }
