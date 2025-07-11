@@ -119,7 +119,6 @@ require("lazy").setup({
           ensure_installed = {
               "lua_ls",
               "ts_ls",
-              "eslint"
           }
         })
       end
