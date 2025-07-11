@@ -7,3 +7,6 @@ lspconfig.lua_ls.setup {
 lspconfig.ts_ls.setup {
   capabilities = capabilities,
 }
+lspconfig.emmet_ls.setup({
+  filetypes = { "html", "css", "javascriptreact", "typescriptreact" },
+})

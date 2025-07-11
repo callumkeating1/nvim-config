@@ -61,6 +61,7 @@ require("lazy").setup({
         "saadparwaiz1/cmp_luasnip",
         "L3MON4D3/LuaSnip",
         "rafamadriz/friendly-snippets",
+        "dcampos/cmp-emmet-vim",
       },
       config = function()
         local cmp = require("cmp")
@@ -76,8 +77,8 @@ require("lazy").setup({
           },
           mapping = cmp.mapping.preset.insert({
             ["<C-Space>"] = cmp.mapping.complete(),
-            ["<CR>"] = cmp.mapping.confirm({ select = true }),
-            ["<Tab>"] = cmp.mapping(function(fallback)
+            ["<TAB>"] = cmp.mapping.confirm({ select = true }),
+            ["<C-Tab>"] = cmp.mapping(function(fallback)
               if cmp.visible() then
                 cmp.select_next_item()
               elseif luasnip.expand_or_jumpable() then
@@ -101,6 +102,7 @@ require("lazy").setup({
             { name = "luasnip" },
             { name = "buffer" },
             { name = "path" },
+            { name = "emmet" },
           }),
         })
       end,
@@ -155,10 +157,6 @@ require("lazy").setup({
         "nvim-telescope/telescope-file-browser.nvim",
         lazy = true,
         dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-    },
-    {
-      "L3MON4D3/LuaSnip",
-      version = "v2.*"
     },
     { "rafamadriz/friendly-snippets" },
     {
