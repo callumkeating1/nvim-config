@@ -21,7 +21,7 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    {
+     {
       "goolord/alpha-nvim",
       config = function()
         require("alpha").setup(require("alpha.themes.dashboard").config)
@@ -121,6 +121,7 @@ require("lazy").setup({
           ensure_installed = {
               "lua_ls",
               "ts_ls",
+              "tailwindcss",
           }
         })
       end
@@ -166,6 +167,18 @@ require("lazy").setup({
         { "<leader>u", "<cmd>UndotreeToggle<CR>", desc = "Toggle Undotree" },
       }
     },
+    {
+      "luckasRanarison/tailwind-tools.nvim",
+      name = "tailwind-tools",
+      build = ":UpdateRemotePlugins",
+      dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-telescope/telescope.nvim", -- optional
+        "neovim/nvim-lspconfig", -- optional
+      },
+      opts = {} -- your configuration
+    },
+
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
