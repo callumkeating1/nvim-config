@@ -122,6 +122,7 @@ require("lazy").setup({
               "lua_ls",
               "ts_ls",
               "tailwindcss",
+              "pylsp",
           }
         })
       end
