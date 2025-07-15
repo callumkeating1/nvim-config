@@ -21,7 +21,14 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-     {
+    {
+      'MeanderingProgrammer/render-markdown.nvim',
+      dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+      ---@module 'render-markdown'
+      ---@type render.md.UserConfig
+      opts = {},
+    },
+    {
       "goolord/alpha-nvim",
       config = function()
         require("alpha").setup(require("alpha.themes.dashboard").config)
@@ -136,9 +143,6 @@ require("lazy").setup({
       dependencies = {
         "nvim-tree/nvim-web-devicons",
       },
-      config = function()
-        require("nvim-tree").setup {}
-      end,
     },
     {
       'nvim-lualine/lualine.nvim',

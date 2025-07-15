@@ -17,5 +17,3 @@ dashboard.section.buttons.val = {
 
 dashboard.section.footer.val = "Welcome to nvim"
 dashboard.section.footer.opts.hl = "Type"
-
-alpha.setup(dashboard.config)
