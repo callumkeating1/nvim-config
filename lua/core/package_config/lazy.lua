@@ -24,6 +24,7 @@ require("lazy").setup({
     {
       'MeanderingProgrammer/render-markdown.nvim',
       dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+      lazy = true,
       ---@module 'render-markdown'
       ---@type render.md.UserConfig
       opts = {},
@@ -38,12 +39,12 @@ require("lazy").setup({
     {
       "ThePrimeagen/harpoon",
       branch = "harpoon2",
+      lazy = true,
       dependencies = { "nvim-lua/plenary.nvim" }
     },
     {
       "tpope/vim-fugitive",
-      lazy = false, -- set to true if you want it to load on a specific command
-      cmd = { "Git", "Gdiffsplit", "Gread", "Gwrite", "Ggrep", "GMove", "GDelete", "GBrowse", "GRemove", "GRename" },
+      lazy = true, -- set to true if you want it to load on a specific command
       keys = {
         { "<leader>gs", ":Git<CR>", desc = "Git status" },
       }
@@ -129,7 +130,7 @@ require("lazy").setup({
               "lua_ls",
               "ts_ls",
               "tailwindcss",
-              "pylsp",
+              "pyright",
           }
         })
       end
