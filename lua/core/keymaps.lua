@@ -15,7 +15,6 @@ vim.keymap.set("n", "<C-e>", api.tree.toggle, opts)
 vim.keymap.set("n", "<C-u>", "<CMD>UndotreeToggle<CR>",opts)
 vim.keymap.set("n", "<TAB>", "<CMD>lua vim.diagnostic.open_float()<CR>", opts);
 vim.keymap.set("n", ";", "o<ESC>", opts);
-
 local modes = { 'n', 'i', 'v' }
 local arrows = { '<Up>', '<Down>', '<Left>', '<Right>' }
 

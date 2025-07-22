@@ -44,10 +44,6 @@ require("lazy").setup({
     },
     {
       "tpope/vim-fugitive",
-      lazy = true, -- set to true if you want it to load on a specific command
-      keys = {
-        { "<leader>gs", ":Git<CR>", desc = "Git status" },
-      }
     },
     {
       "nvim-treesitter/nvim-treesitter",
